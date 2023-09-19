@@ -1,1 +1,33 @@
-something cool
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    std::vector<std::string> participants;
+
+    // Add participants
+    participants.push_back("A");
+    participants.push_back("B");
+    participants.push_back("C");
+    participants.push_back("D");
+    participants.push_back("E");
+
+    // Seed the random number generator
+    std::srand(std::time(0));
+
+    // Generate a random index to select the winner
+    int winnerIndex = std::rand() % participants.size();
+    std::string winner = participants[winnerIndex];
+
+    std::cout << "Welcome to the Prize Draw!\n\n";
+    std::cout << "Participants:\n";
+    for (const std::string& participant : participants) {
+        std::cout << participant << "\n";
+    }
+
+    std::cout << "\nAnd the winner is...\n";
+    std::cout << winner << "!\n";
+
+    return 0;
+}
